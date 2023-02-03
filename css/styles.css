@@ -4,8 +4,14 @@
     --color-accent: #ff3400;
     --color-headings: #1b0760;
     --color-body: #918ca4;
+    --color-border: #ccc;
+    --border-radius: 30px;
 }
 /* Topography */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 html {
     font-size: 62.5%;
 }
@@ -96,6 +102,7 @@ a {
 
 .badge--small {
     font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -104,5 +111,207 @@ a {
     }
     .badge--small {
         font-size: 1.2rem;
+    }
+}
+
+/* list */
+.list {
+    list-style: none;
+    padding-left: 0;
+    color: var(--color-headings);
+}
+.list--inline .list__item {
+    display: inline-block;
+    margin-right: 2rem;
+}
+.list--tick {
+    list-style-image: url(../images/tick.svg);
+    padding-left: 3rem;
+}
+
+.list--tick .list__item {
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .list--tick .list__item {
+        padding-left: 0;
+    }
+}
+
+
+/* Icon */
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.icon--primary {
+    fill: var(--color-primary);
+}
+.icon-container {
+    border-radius: 50%;
+    background: #f3f9fa;
+    width: 64px;
+
+    display: inline-flex;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    padding: 2rem 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.btn--primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+.btn--primary:hover {
+    background: #3a8ffd;
+}
+.btn--secondary {
+    background: var(--color-secondary);
+    color: #fff;
+}
+.btn--secondary:hover {
+    background: #00c8eb;
+}
+.btn--accent {
+    background: var(--color-accent);
+    color: #fff;
+}
+.btn--accent:hover {
+    background: #ec3000;
+}
+.btn--outline {
+    background: #fff;
+    color: var(--color-headings);
+    border: 2px solid var(--color-headings);
+}
+.btn--outline:hover {
+    background: var(--color-headings);
+    color: #fff;
+}
+
+.btn--block {
+    width: 100%;
+    display: inline-block;
+}
+
+@media screen and (min-width: 1024px) {
+    .btn {
+        font-size: 1.5rem;
+    }
+}
+
+
+.input {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    color: var(--color-headings);
+    font-size: 2rem;
+    outline: none;
+    padding: 1.5rem 3.5rem;
+}
+
+::placeholder {
+    color: #cdcbd7;
+}
+
+.input-group {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    display: flex;
+}
+.input-group .input {
+    border: none;
+    padding: 1.5rem 1rem;
+    flex-grow: 1;
+}
+.input-group .btn {
+    margin: 4px;
+}
+/* Card */
+.card {
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 10px #f3f3f3;
+}
+
+.card__header, .card__body {
+    padding: 2rem 3rem;
+}
+.card--primary .card__header {
+    background: var(--color-primary);
+    color: #fff;
+}
+.card--secondary .card__header {
+    background: var(--color-secondary);
+    color: #fff;
+}
+.card--secondary .badge--secondary {
+    background: #02cdf1;
+}
+/* Plans */
+.plan__name {
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.4rem;
+    margin-right: 1rem;
+}
+.plan__description {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+}
+.plan__price {
+    font-size: 6rem;
+}
+.plan__billing-cycle {
+    font-size: 2.4rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+.plan .list__item {
+    margin-bottom: 2rem;
+}
+.card__header {
+    position: relative;
+}
+.plan--popular .card__header::before {
+    content: url(/images/popular.svg);
+    width: 50px;
+    display: inline-block;
+    position: absolute;
+    top: -5%;
+    right: 5%;
+}
+@media screen and (min-width:1024px) {
+    input {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .plan__name {
+        font-size: 1.4rem;
+    }
+    .plan__price {
+        font-size: 5rem;
+    }
+    .plan__billing-cycle {
+        font-size: 1.6rem;
     }
 }
